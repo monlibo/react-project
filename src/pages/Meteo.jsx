@@ -6,7 +6,7 @@ import "./../styles/pages/Meteo.css";
 import Loader from "../utils/Atom";
 
 
-const getWindDirection = (degre: number) => {
+const getWindDirection = (degre) => {
   if (degre >= 90 && degre <= 180) {
     return "NORD OUEST";
   }
@@ -28,7 +28,7 @@ function Meteo() {
   
   const temp = data["main"];
 
-  const getTime = (timestamp: number) => {
+  const getTime = (timestamp) => {
     var date = new Date(1000 * timestamp);
     var hour = date.getHours();
     var mins = date.getMinutes();
@@ -73,7 +73,7 @@ function Meteo() {
 
   return !loading ? (
     !error ? (
-      <div className="flex flex-col items-center  w-full h-full min-h-screen justify-center dark:bg-gray-700">
+      <div className="flex flex-col items-center justify-center w-full h-full min-h-screen dark:bg-gray-700">
         <div className="page_wrapper">
           <MeteoHeader />
           <div className="location_wrapper">
