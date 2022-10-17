@@ -62,7 +62,7 @@ export const CityProvider = ({ children }) => {
     async function fetchData() {
       try {
         const responseGeo = await fetch(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=854b73e6835c94bd5f0845670ebaf9c3`
+          `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=854b73e6835c94bd5f0845670ebaf9c3`
         );
         const latLong = await responseGeo.json();
         const latitude = latLong[0].lat;
