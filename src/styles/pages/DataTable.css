@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+td,
+th {
+    @apply border border-black
+}
+
+td,
+th {
+    @apply py-3 px-4 text-left
+}
+
+th {
+    @apply uppercase text-gray-100
+}
+
+.suggest-div {
+    display: block;
+    transition-delay: 2000ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 800ms;
+}

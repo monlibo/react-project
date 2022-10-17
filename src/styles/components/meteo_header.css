@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header {
+    @apply w-full min-h-[50px] flex shadow-md py-3;
+}
+
+#search_form {
+    @apply w-full px-6 flex justify-center items-center;
+}
+
+.search_input {
+    @apply h-[35px] w-full px-4 text-[14px] placeholder:text-gray-600 rounded-lg border border-gray-600 dark:bg-gray-600 dark:text-gray-300 dark:placeholder:text-gray-300
+}
+
+.theme_toggler_container {
+    @apply max-w-[80px] lg:w-[200px] lg:max-w-none flex items-center justify-center px-2;
+}
+
+
+
+.theme_toggler_button {
+    @apply w-[50px] h-[20px] bg-gray-300 relative rounded-full
+}
+
+.theme_toggler_icon {
+    @apply w-[25px] h-[25px] bg-gray-800 text-white rounded-full absolute left-0 -top-[2px] flex justify-center items-center text-[12px];
+}

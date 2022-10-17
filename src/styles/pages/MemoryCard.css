@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+    transition: transform 300ms;
+    transform: rotateY(0deg);
+}
+
+.rotate {
+    transition: transform 300ms;
+    transform: rotateY(180deg);
+}
+
+.reRotate {
+    transition: transform 300ms;
+    transform: rotateY(-180deg);
+}
+
+.theme-icon-container {
+    transition:position 1000ms;
+}

@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Lait Nido",
+      "price": 200,
+      "quantity": 10,
+      "date": "2022-10-10",
+      "category": "divers"
+    },
+    {
+      "id": 2,
+      "name": "Spaghetti Matanti",
+      "price": 300,
+      "quantity": 50,
+      "date": "2022-08-01",
+      "category": "divers"
+    },
+    {
+      "id": 3,
+      "name": "Sardine Apollo",
+      "price": 500,
+      "quantity": 22,
+      "date": "2022-10-12",
+      "category": "divers"
+    },
+    {
+      "id": 4,
+      "name": "Air max Jordan",
+      "price": 150000,
+      "quantity": 6,
+      "date": "2015-10-10",
+      "category": "chaussures"
+    },
+    {
+      "id": 5,
+      "name": "Balanciaga Azure",
+      "price": 80000,
+      "quantity": 14,
+      "date": "2021-10-05",
+      "category": "chaussures"
+    },
+    {
+      "id": 6,
+      "name": "Huarache Nike",
+      "price": 40000,
+      "quantity": 13,
+      "date": "2022-10-03",
+      "category": "chaussures"
+    },
+    {
+      "id": 7,
+      "name": "La robe noir",
+      "price": 55000,
+      "quantity": 15,
+      "date": "2021-10-07",
+      "category": "parfums"
+    },
+    {
+      "id": 8,
+      "name": "Petite princesse",
+      "price": 200000,
+      "quantity": 3,
+      "date": "2021-10-05",
+      "category": "parfums"
+    },
+    {
+      "id": 9,
+      "name": "Claire de Lune",
+      "price": 2000,
+      "quantity": 10,
+      "date": "2022-06-11",
+      "category": "creme de beauté"
+    },
+    {
+      "id": 10,
+      "name": "L'Oréal Paris",
+      "price": 65000,
+      "quantity": 60,
+      "date": "2018-10-10",
+      "category": "creme de beauté"
+    },
+    {
+      "operationName": "IntrospectionQuery",
+      "query": "\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ",
+      "id": 11
+    },
+    {
+      "operationName": "IntrospectionQuery",
+      "query": "\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ",
+      "id": 12
+    }
+  ]
+}

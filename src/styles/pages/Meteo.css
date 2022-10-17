@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page_wrapper {
+    @apply md:w-[500px] w-full lg:w-[700px] flex flex-col space-y-4 md:my-4 md:overflow-hidden pb-6 md:rounded-xl dark:bg-gray-800 dark:text-gray-50;
+    box-shadow: 2px 2px 30px rgba(3, 92, 247, 0.301);
+}
+.location_wrapper{
+    @apply w-full flex flex-col space-y-0 items-center;
+}
+.location {
+    @apply font-extrabold md:text-[18px] uppercase
+}
+
+.day_time {
+    @apply text-gray-600 dark:text-gray-400;
+}
+
+.weather-time_image {
+    @apply w-full h-[250px] !mt-6 flex items-center justify-center;
+}
+
+.degree-info_wrapper {
+    @apply w-full flex flex-col items-center justify-center text-[40px]
+}
+
+.degre {}
+
+.feel_time {
+    @apply text-[15px] text-gray-600 dark:text-gray-400 capitalize;
+}
+
+.separator1 {
+    @apply w-[30px] h-[3px] mx-auto rounded-full bg-gray-300;
+}
+
+
+
+.precision_wrapper {
+    @apply w-full grid grid-cols-3 grid-rows-2 gap-y-4;
+}
+
+.precision_item {
+    @apply h-[90px] md:h-[100px] flex flex-col justify-center items-center;
+}
+
+.precision_type_icon {
+    @apply flex justify-center items-center text-[28px] md:text-[40px];
+}
+
+.precision_text {
+    @apply flex flex-col justify-center items-center -space-y-1 w-full border-r-2 border-gray-400;
+}
+
+.precison_name {
+    @apply text-[10px] md:text-[12px] text-gray-500 dark:text-gray-400 font-bold;
+}
+
+.precison_value {
+    @apply text-[20px] font-bold;
+}
