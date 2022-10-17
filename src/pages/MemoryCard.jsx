@@ -67,7 +67,7 @@ function MemoryCard() {
   ];
 
   //Cette fonction permet de mélanger la liste pour que les cartes ne soient pas alignées
-  const getRandom = (array: any[]) => {
+  const getRandom = (array) => {
     return array.sort(() => 0.5 - Math.random());
   };
 
@@ -78,7 +78,7 @@ function MemoryCard() {
   const [openedCardName, setOpenedCardName] = useState("");
   const [openedCards, setOpenedCards] = useState([]);
 
-  const returnCard = async (index: any, cardID: any, nameImage: any) => {
+  const returnCard = async (index,cardID, nameImage) => {
     if (chance > 0) {
       //Vérifier si l'image cliqué n'est pas déjà validé
       if (!openedCards.find((name) => name === nameImage)) {
@@ -186,7 +186,7 @@ function MemoryCard() {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center p-6 space-y-8 dark:bg-gray-700 dark:text-gray-100 h-screen">
+      <div className="flex flex-col items-center w-full h-screen p-6 space-y-8 dark:bg-gray-700 dark:text-gray-100">
         <div className="w-[1000px] flex justify-between items-center">
           <div className="text-[20px] font-bold text-blue-600">
             MEMORY CARD GAME
@@ -254,7 +254,7 @@ function MemoryCard() {
                 setOpenedCards([]);
               }, 100);
             }}
-            className="bg-teal-600 px-6 py-2 rounded-md text-gray-50"
+            className="px-6 py-2 bg-teal-600 rounded-md text-gray-50"
           >
             Recommencer
           </button>
