@@ -11,6 +11,7 @@ import MemoryCard from "./pages/MemoryCard";
 import DataTable from "./pages/DataTable";
 import PasswordGenerator from "./pages/PasswordGenerator";
 import TicTacToe from "./pages/TicTacToe";
+import Calculator from "./pages/Calculator";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,7 +21,7 @@ root.render(
         <CityProvider>
           <GlobalStyle />
           <Routes>
-            <Route exact path="/" element={<App />} />
+            <Route exact path="/calculator" element={<Calculator />} />
             <Route exact path="/meteo" element={<Meteo />} />
             <Route exact path="/memory-card" element={<MemoryCard />} />
             <Route exact path="/data-table" element={<DataTable />} />

@@ -58,7 +58,7 @@ export default function DataTable() {
     setLoading(false);
   }, []);
 
-  const filterBy = (products) => {
+  const filterBy = (products: array) => {
     let productsArray;
 
     switch (sortBy) {
@@ -67,6 +67,7 @@ export default function DataTable() {
         break;
 
       case "name":
+        console.log(products);
         productsArray = products.sort((a, b) => {
           const nameA = a.name.toUpperCase(); // ignore upper and lowercase
           const nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -466,23 +467,23 @@ export default function DataTable() {
   };
 
   return (
-    <div className="px-8 flex flex-col space-y-4">
+    <div className="flex flex-col px-8 space-y-4">
       <div className="w-full h-[50px] flex items-center justify-between mt-4">
         <span className="text-[30px] font-bold text-blue-600">DataTable</span>
         <button
           onClick={() => setOpenAddForm(true)}
-          className="px-3 py-1 bg-blue-500 text-gray-50 rounded-md"
+          className="px-3 py-1 bg-blue-500 rounded-md text-gray-50"
           disabled={openAddForm === true ? true : false}
         >
           Add new product
         </button>
       </div>
 
-      <div className="py-3 w-full flex justify-between items-end">
+      <div className="flex items-end justify-between w-full py-3">
         <form
           action=""
           onSubmit={(e) => handleSubmit(e)}
-          className="w-full flex space-x-4 items-center"
+          className="flex items-center w-full space-x-4"
         >
           <div className="flex flex-col items-center">
             <label htmlFor="fieldSearch" className="w-full">
@@ -504,7 +505,7 @@ export default function DataTable() {
             </select>
           </div>
 
-          <div className="flex flex-col  items-center">
+          <div className="flex flex-col items-center">
             <label htmlFor="criteron" className="w-full">
               is :{" "}
             </label>
@@ -575,15 +576,15 @@ export default function DataTable() {
       </div>
 
       {message !== "" && (
-        <div className="w-full bg-green-200 rounded-md border border-green-500 py-2 px-4 mb-4">
+        <div className="w-full px-4 py-2 mb-4 bg-green-200 border border-green-500 rounded-md">
           {message}
         </div>
       )}
 
       {!loading ? (
-        <div className="flex flex-col space-y-4 w-full">
+        <div className="flex flex-col w-full space-y-4">
           <div className="w-full overflow-hidden rounded-lg">
-            <table className="table-auto w-full border-collapse bg-cyan-50">
+            <table className="w-full border-collapse table-auto bg-cyan-50">
               <thead className=" text-gray-100 !rounded-xl bg-gray-900 ">
                 <tr className="">
                   <th>
@@ -757,7 +758,7 @@ export default function DataTable() {
             {selected.find((element) => element === true) && (
               <button
                 onClick={deleteSelection}
-                className="bg-red-200 text-red-600 px-3 py-1 rounded-md"
+                className="px-3 py-1 text-red-600 bg-red-200 rounded-md"
               >
                 Supprimer les éléments sélectionnés
               </button>
@@ -821,7 +822,7 @@ export default function DataTable() {
 
       {/* //Formulaire d'ajout de produits */}
       {openAddForm && (
-        <div className="w-full fixed top-0 left-0 z-20 h-screen overflow-auto bg-black/40 flex items-center justify-center">
+        <div className="fixed top-0 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/40">
           <div className="bg-white rounded-md w-[40%] flex flex-col items-center space-y-4 p-4">
             <p>Add a new product</p>
             <form
@@ -830,7 +831,7 @@ export default function DataTable() {
                 add(e);
               }}
               action=""
-              className="w-full flex flex-col items-center space-y-3"
+              className="flex flex-col items-center w-full space-y-3"
             >
               <div className="w-[95%] flex flex-col space-y-2">
                 <label htmlFor="name" className="text-gray-500">
@@ -916,13 +917,13 @@ export default function DataTable() {
                 <button
                   type="button"
                   onClick={() => setOpenAddForm(false)}
-                  className="bg-red-200 text-red-600 px-3 py-1 rounded-md"
+                  className="px-3 py-1 text-red-600 bg-red-200 rounded-md"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-gray-50 px-3 py-1 rounded-md"
+                  className="px-3 py-1 bg-blue-500 rounded-md text-gray-50"
                 >
                   + Add
                 </button>
@@ -934,7 +935,7 @@ export default function DataTable() {
 
       {/* //Formulaire de modification de produits */}
       {openEditForm && (
-        <div className="w-full overflow-auto fixed top-0 left-0 z-20 h-screen bg-black/40 flex items-center justify-center">
+        <div className="fixed top-0 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/40">
           <div className="bg-white rounded-md w-[40%] flex flex-col items-center space-y-4 p-4">
             <p>Update product {idUpdate} </p>
             <form
@@ -943,7 +944,7 @@ export default function DataTable() {
                 updateProduct(e);
               }}
               action=""
-              className="w-full flex flex-col items-center space-y-3"
+              className="flex flex-col items-center w-full space-y-3"
             >
               <div className="w-[95%] flex flex-col space-y-2">
                 <label htmlFor="name" className="text-gray-500">
@@ -1074,13 +1075,13 @@ export default function DataTable() {
                 <button
                   type="button"
                   onClick={() => setOpenEditForm(false)}
-                  className="bg-red-200 text-red-600 px-3 py-1 rounded-md"
+                  className="px-3 py-1 text-red-600 bg-red-200 rounded-md"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-gray-50 px-3 py-1 rounded-md"
+                  className="px-3 py-1 bg-blue-500 rounded-md text-gray-50"
                 >
                   Update
                 </button>

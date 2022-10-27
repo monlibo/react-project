@@ -1,13 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 header {
     @apply w-full min-h-[50px] flex shadow-md py-3;
 }
 
 #search_form {
-    @apply w-full px-6 flex justify-center items-center;
+    @apply flex items-center justify-center w-full px-6;
 }
 
 .search_input {

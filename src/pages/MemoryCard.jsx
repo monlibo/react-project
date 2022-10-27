@@ -78,7 +78,7 @@ function MemoryCard() {
   const [openedCardName, setOpenedCardName] = useState("");
   const [openedCards, setOpenedCards] = useState([]);
 
-  const returnCard = async (index,cardID, nameImage) => {
+  const returnCard = async (index, cardID, nameImage) => {
     if (chance > 0) {
       //Vérifier si l'image cliqué n'est pas déjà validé
       if (!openedCards.find((name) => name === nameImage)) {
@@ -186,8 +186,8 @@ function MemoryCard() {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full h-screen p-6 space-y-8 dark:bg-gray-700 dark:text-gray-100">
-        <div className="w-[1000px] flex justify-between items-center">
+      <div className="flex flex-col items-center w-full min-h-screen p-6 space-y-8 dark:bg-gray-700 dark:text-gray-100">
+        <div className="w-full lg:w-[1000px] flex flex-col space-y-2 md:space-y-0  md:flex-row justify-between items-center">
           <div className="text-[20px] font-bold text-blue-600">
             MEMORY CARD GAME
           </div>
@@ -217,28 +217,32 @@ function MemoryCard() {
             </button>
           </div>
         </div>
-        <div className="w-[1000px] bg-blue-100 overflow-hidden rounded-md grid grid-cols-4 grid-rows-2 gap-1 dark:bg-gray-700  shadow-blue-300">
-          {images &&
-            images.map((image, index) => {
-              return (
-                <div
-                  key={image.id}
-                  id={image.id}
-                  onClick={(e) => {
-                    returnCard(index, image.id, image.name);
-                  }}
-                  className="card h-[220px] bg-green-900 dark:bg-gray-800 overflow-hidden"
-                >
-                  {image.view == true && (
-                    <img
-                      src={image.name}
-                      alt={image.name}
-                      className={`${image.view === false ? "hidden" : "block"}`}
-                    />
-                  )}
-                </div>
-              );
-            })}
+        <div className="block w-full">
+          <div className="md:max-w-[500px] lg:max-w-[1000px] mx-auto rounded-md  grid grid-cols-smm sm:grid-cols-sm md:grid-cols-lg    gap-[20px] dark:bg-gray-700  shadow-blue-300">
+            {images &&
+              images.map((image, index) => {
+                return (
+                  <div
+                    key={image.id}
+                    id={image.id}
+                    onClick={(e) => {
+                      returnCard(index, image.id, image.name);
+                    }}
+                    className="block overflow-hidden bg-green-900 card h-[100px] sm:h-[120px] md:h-[200px] w-full object-cover dark:bg-gray-800"
+                  >
+                    {image.view === true && (
+                      <img
+                        src={image.name}
+                        alt={image.name}
+                        className={`${
+                          image.view === false ? "hidden" : "block"
+                        }  w-full object-cover h-full`}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+          </div>
         </div>
 
         <div className="w-full flex justify-center space-x-4 !mt-8">
@@ -259,8 +263,9 @@ function MemoryCard() {
             Recommencer
           </button>
         </div>
+
+        <MeteoFooter />
       </div>
-      <MeteoFooter />
     </>
   );
 }

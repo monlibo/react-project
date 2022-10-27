@@ -1,13 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 .page_wrapper {
     @apply md:w-[500px] w-full lg:w-[700px] flex flex-col space-y-4 md:my-4 md:overflow-hidden pb-6 md:rounded-xl dark:bg-gray-800 dark:text-gray-50;
     box-shadow: 2px 2px 30px rgba(3, 92, 247, 0.301);
 }
 .location_wrapper{
-    @apply w-full flex flex-col space-y-0 items-center;
+    @apply flex flex-col items-center w-full space-y-0;
 }
 .location {
     @apply font-extrabold md:text-[18px] uppercase
@@ -38,7 +36,7 @@
 
 
 .precision_wrapper {
-    @apply w-full grid grid-cols-3 grid-rows-2 gap-y-4;
+    @apply grid w-full grid-cols-3 grid-rows-2 gap-y-4;
 }
 
 .precision_item {
@@ -50,7 +48,7 @@
 }
 
 .precision_text {
-    @apply flex flex-col justify-center items-center -space-y-1 w-full border-r-2 border-gray-400;
+    @apply flex flex-col items-center justify-center w-full -space-y-1 border-r-2 border-gray-400;
 }
 
 .precison_name {
