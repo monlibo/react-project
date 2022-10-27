@@ -44,7 +44,7 @@
 }
 
 .precision_type_icon {
-    @apply flex justify-center items-center text-[28px] md:text-[40px];
+    @apply flex justify-center items-center text-[28px] md:text-[40px] text-center;
 }
 
 .precision_text {
@@ -52,9 +52,9 @@
 }
 
 .precison_name {
-    @apply text-[10px] md:text-[12px] text-gray-500 dark:text-gray-400 font-bold;
+    @apply text-[10px] md:text-[12px] text-gray-500 dark:text-gray-400 font-bold w-full text-center;
 }
 
 .precison_value {
-    @apply text-[20px] font-bold;
+    @apply text-[18px] font-bold text-center;
 }

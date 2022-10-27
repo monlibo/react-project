@@ -58,7 +58,7 @@ export default function DataTable() {
     setLoading(false);
   }, []);
 
-  const filterBy = (products: array) => {
+  const filterBy = (products) => {
     let productsArray;
 
     switch (sortBy) {
@@ -467,9 +467,11 @@ export default function DataTable() {
   };
 
   return (
-    <div className="flex flex-col px-8 space-y-4">
+    <div className="flex flex-col px-4 space-y-4">
       <div className="w-full h-[50px] flex items-center justify-between mt-4">
-        <span className="text-[30px] font-bold text-blue-600">DataTable</span>
+        <span className="text-[20px] lg:text-[30px] font-bold text-blue-600">
+          DataTable
+        </span>
         <button
           onClick={() => setOpenAddForm(true)}
           className="px-3 py-1 bg-blue-500 rounded-md text-gray-50"
@@ -479,13 +481,13 @@ export default function DataTable() {
         </button>
       </div>
 
-      <div className="flex items-end justify-between w-full py-3">
+      <div className="flex flex-col items-start justify-start w-full py-3 space-y-4 lg:flex-row lg:items-end lg:justify-between">
         <form
           action=""
           onSubmit={(e) => handleSubmit(e)}
-          className="flex items-center w-full space-x-4"
+          className="grid w-full grid-cols-2 gap-y-4 gap-x-2 md:max-w-[500px] lg:grid-cols-3 lg:max-w-[60%]"
         >
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <label htmlFor="fieldSearch" className="w-full">
               Filter where :{" "}
             </label>
@@ -494,7 +496,7 @@ export default function DataTable() {
               name="fieldSearch"
               id="fieldSearch"
               className={
-                " text-[13px] h-[30px] w-[100px] border border-gray-400 text-gray-500 outline-blue-500 rounded-md font-semibold"
+                " text-[13px] h-[30px] w-full border border-gray-400 text-gray-500 outline-blue-500 rounded-md font-semibold"
               }
             >
               <option value="name"> Name</option>
@@ -505,7 +507,7 @@ export default function DataTable() {
             </select>
           </div>
 
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <label htmlFor="criteron" className="w-full">
               is :{" "}
             </label>
@@ -514,7 +516,7 @@ export default function DataTable() {
               name="criterion"
               id="criterion"
               className={
-                " text-[13px] h-[30px] w-[100px] border border-gray-400 text-gray-500 rounded-md font-semibold"
+                " text-[13px] h-[30px] w-full border border-gray-400 text-gray-500 rounded-md font-semibold"
               }
             >
               <option value="equal"> {"=="} equal </option>
@@ -524,7 +526,7 @@ export default function DataTable() {
             </select>
           </div>
 
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start col-span-2 lg:col-span-1">
             <label htmlFor="query" className="w-full">
               to :{" "}
             </label>
@@ -536,7 +538,7 @@ export default function DataTable() {
               onChange={(e) => handleQuery(e.target.value)}
               placeholder="Filtrer..."
               autoComplete="none"
-              className="px-4 text-[13px] h-[30px] w-[200px] border border-gray-400 text-gray-500 rounded-md font-semibold"
+              className="px-4 text-[13px] h-[30px] w-full border border-gray-400 text-gray-500 rounded-md font-semibold"
             />
           </div>
         </form>
@@ -559,7 +561,7 @@ export default function DataTable() {
               }
             }
           }}
-          className="text-[14px] flex space-x-4 items-center min-w-[200px] justify-end"
+          className="text-[14px] flex space-x-4 items-center justify-end"
         >
           <span>Per page </span>
           <input
@@ -570,7 +572,7 @@ export default function DataTable() {
             max={products.length}
             defaultValue="5"
             autoComplete="none"
-            className="px-4 text-[13px] h-[30px] w-[100px] border border-black rounded-md font-semibold"
+            className="px-4 text-[13px] h-[30px] border border-gray-400 rounded-md font-semibold"
           />
         </form>
       </div>
@@ -583,7 +585,7 @@ export default function DataTable() {
 
       {!loading ? (
         <div className="flex flex-col w-full space-y-4">
-          <div className="w-full overflow-hidden rounded-lg">
+          <div className="w-full overflow-x-auto overflow-y-hidden rounded-lg">
             <table className="w-full border-collapse table-auto bg-cyan-50">
               <thead className=" text-gray-100 !rounded-xl bg-gray-900 ">
                 <tr className="">
@@ -746,7 +748,7 @@ export default function DataTable() {
             </table>
           </div>
 
-          <div className="h-[50px] w-full flex justify-between items-center">
+          <div className="flex flex-col items-center justify-between w-full lg:flex-row lg:space-x-4">
             <span className="text-[14px]">
               Showing{" "}
               <span>
@@ -765,7 +767,7 @@ export default function DataTable() {
             )}
 
             {per < products.length && (
-              <div className="flex [&>*]:px-4 [&>*]:py-1 text-[14px] ">
+              <div className="flex flex-col items-center md:flex-row [&>*]:px-4 [&>*]:py-1 text-[14px] flex-1">
                 {page > 1 && (
                   <Link
                     onClick={(e) => {
@@ -773,33 +775,34 @@ export default function DataTable() {
                       setPage(page - 1);
                     }}
                     to={"?page=" + (page - 1)}
-                    className="text-blue-500"
+                    className="text-blue-500 h-fit"
                   >
                     {"<<"} Précédent
                   </Link>
                 )}
 
-                {new Array(pageCount).fill(1).map((e, index) => {
-                  return (
-                    <>
-                      <Link
-                        key={index}
-                        className={
-                          page === index + 1 &&
-                          "bg-blue-500 text-gray-50 rounded-md hover:shadow-lg hover:shadow-blue-400"
-                        }
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPage(index + 1);
-                        }}
-                        to={"?page=" + (index + 1)}
-                      >
-                        {index + 1}
-                      </Link>
-                    </>
-                  );
-                })}
-
+                <div className="grid grid-cols-5 gap-3 md:grid-cols-10 md:max-w-[600px]">
+                  {new Array(pageCount).fill(1).map((e, index) => {
+                    return (
+                      <>
+                        <Link
+                          key={index}
+                          className={`${
+                            page === index + 1 &&
+                            "bg-blue-500 text-gray-50 px-3 h-fit w-fit rounded-md hover:shadow-lg hover:shadow-blue-400"
+                          } underline` }
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPage(index + 1);
+                          }}
+                          to={"?page=" + (index + 1)}
+                        >
+                          {index + 1}
+                        </Link>
+                      </>
+                    );
+                  })}
+                </div>
                 {page < pageCount && (
                   <Link
                     onClick={(e) => {
@@ -807,7 +810,7 @@ export default function DataTable() {
                       setPage(page + 1);
                     }}
                     to={"?page=" + (page + 1)}
-                    className="text-blue-500"
+                    className="text-blue-500 h-fit"
                   >
                     Suivant {">>"}
                   </Link>
