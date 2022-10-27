@@ -56,5 +56,5 @@
 }
 
 .precison_value {
-    @apply text-[18px] font-bold text-center;
+    @apply text-[18px] font-bold text-center overflow-auto;
 }
