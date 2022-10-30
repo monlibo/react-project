@@ -825,8 +825,8 @@ export default function DataTable() {
 
       {/* //Formulaire d'ajout de produits */}
       {openAddForm && (
-        <div className="fixed top-0 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/40">
-          <div className="bg-white rounded-md w-[40%] flex flex-col items-center space-y-4 p-4">
+        <div className="fixed -top-4 left-0 z-20 flex items-center justify-center w-full  h-screen overflow-auto bg-black/70">
+          <div className="bg-white rounded-md w-full md:w-[60%] lg:w-[40%] mx-2 flex flex-col items-center space-y-4 p-4">
             <p>Add a new product</p>
             <form
               onSubmit={(e) => {
@@ -938,8 +938,8 @@ export default function DataTable() {
 
       {/* //Formulaire de modification de produits */}
       {openEditForm && (
-        <div className="fixed top-0 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/40">
-          <div className="bg-white rounded-md w-[40%] flex flex-col items-center space-y-4 p-4">
+        <div className="fixed -top-4 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/70">
+          <div className="bg-white mx-2 rounded-md w-full md:w-[60%] lg:w-[40%] flex flex-col items-center space-y-4 p-4">
             <p>Update product {idUpdate} </p>
             <form
               onSubmit={(e) => {

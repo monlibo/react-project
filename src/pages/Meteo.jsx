@@ -1,10 +1,9 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import MeteoFooter from "../components/MeteoFooter";
 import MeteoHeader from "../components/MeteoHeader";
 import { CityContext } from "../utils/context";
 import "./../styles/pages/Meteo.css";
 import Loader from "../utils/Atom";
-
 
 const getWindDirection = (degre) => {
   if (degre >= 90 && degre <= 180) {
@@ -22,10 +21,9 @@ const getWindDirection = (degre) => {
   }
 };
 
-
 function Meteo() {
   const { city, updateCity, data, loading, error } = useContext(CityContext);
-  
+
   const temp = data["main"];
 
   const getTime = (timestamp) => {
@@ -91,7 +89,9 @@ function Meteo() {
             {data["weather"][0].main === "Hail" && (
               <i className="bi-cloud-hail"></i>
             )}
-            {data["weather"][0].main === "Snow" && <i className="bi-cloud-snow"></i>}
+            {data["weather"][0].main === "Snow" && (
+              <i className="bi-cloud-snow"></i>
+            )}
             {data["weather"][0].main === "Clear" && <i className="bi-sun"></i>}
             {data["weather"][0].main === "Sleet" && (
               <i className="bi-cloud-sleet"></i>
