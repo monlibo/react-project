@@ -392,7 +392,7 @@ export default function DataTable() {
       setCategoryError("");
       setOpenAddForm(false);
 
-      setMessage("Produit ajouté avec succès");
+      setMessage("Product added");
     }
   };
 
@@ -463,7 +463,7 @@ export default function DataTable() {
       setCategoryError("");
       setIdUpdate(0);
       setOpenEditForm(false);
-      setMessage("Produit mis à jour avec succès");
+      setMessage("Product updated");
     }
   };
 
@@ -550,12 +550,12 @@ export default function DataTable() {
 
             if (e.target[0].value < 0) {
               alert(
-                "Le nombre d'éléments par page ne peut pas être inférieure ou égale à 0"
+                "The number of items per page cannot be less than or equal to 0"
               );
             } else {
               if (e.target[0].value > products.length) {
                 alert(
-                  "Le nombre d'éléments par page ne peut pas être supérieur au nombre total d'éléments"
+                  "The number of items per page cannot be greater than the total number of items"
                 );
               } else {
                 setPer(e.target[0].value);
@@ -726,7 +726,7 @@ export default function DataTable() {
                                   e.preventDefault();
                                   // eslint-disable-next-line no-restricted-globals
                                   confirm(
-                                    "Etes-vous sûr de vouloir supprimer ce produit ?"
+                                    "Are you sure you want to delete this product ?"
                                   ) && deleteProduct(product.id);
                                 }}
                                 className="text-red-500"
@@ -741,7 +741,7 @@ export default function DataTable() {
                 ) : (
                   <tr>
                     <td colSpan="8" className="text-center">
-                      Aucun résultat
+                    No result
                     </td>
                   </tr>
                 )}
@@ -763,7 +763,7 @@ export default function DataTable() {
                 onClick={deleteSelection}
                 className="px-3 py-1 text-red-600 bg-red-200 rounded-md"
               >
-                Supprimer les éléments sélectionnés
+                Delete selected items
               </button>
             )}
 
@@ -823,7 +823,7 @@ export default function DataTable() {
         <div>Loading...</div>
       )}
 
-      {/* //Formulaire d'ajout de produits */}
+      {/* //Add form */}
       {openAddForm && (
         <div className="fixed left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto -top-4 bg-black/70">
           <div className="bg-white rounded-md w-full md:w-[60%] lg:w-[40%] mx-2 flex flex-col items-center space-y-4 p-4">
@@ -936,7 +936,7 @@ export default function DataTable() {
         </div>
       )}
 
-      {/* //Formulaire de modification de produits */}
+      {/* //Update form */}
       {openEditForm && (
         <div className="fixed left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto -top-4 bg-black/70">
           <div className="bg-white mx-2 rounded-md w-full md:w-[60%] lg:w-[40%] flex flex-col items-center space-y-4 p-4">
