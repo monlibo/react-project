@@ -4,6 +4,7 @@ import "./../styles/pages/DataTable.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import { data } from "../libs/data";
 
 export default function DataTable() {
   //Permet de modifier l'url
@@ -48,13 +49,13 @@ export default function DataTable() {
 
   //Recupère les produits depuis l'API
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("http://localhost:4000/products");
-      const dataFecthed = await response.json();
-      setProducts(dataFecthed);
-    }
-
-    fetchData();
+    // async function fetchData() {
+    //   const response = await fetch("http://localhost:4000/products");
+    //   const dataFecthed = await response.json();
+    //   setProducts(dataFecthed);
+    // }
+    setProducts(data["products"]);
+    //fetchData();
     setLoading(false);
   }, []);
 
@@ -520,8 +521,8 @@ export default function DataTable() {
               }
             >
               <option value="equal"> {"=="} equal </option>
-              <option value="upper">{">"} upper </option>
-              <option value="lower">{"<"} lower </option>
+              <option value="upper">{">"} upper than </option>
+              <option value="lower">{"<"} lower than </option>
               <option value="different">{"<>"} different </option>
             </select>
           </div>
@@ -596,7 +597,7 @@ export default function DataTable() {
                       name=""
                       value=""
                     />
-                    <span>Tout</span>
+                    <span>All</span>
                   </th>
                   <th onClick={() => updateSort("id")} className="!text-center">
                     <div className="flex space-x-4">
@@ -748,7 +749,7 @@ export default function DataTable() {
             </table>
           </div>
 
-          <div className="flex flex-col items-center justify-between w-full lg:flex-row lg:space-x-4">
+          <div className="flex flex-col justify-between w-full lg:flex-row lg:space-x-4">
             <span className="text-[14px]">
               Showing{" "}
               <span>
@@ -767,7 +768,7 @@ export default function DataTable() {
             )}
 
             {per < products.length && (
-              <div className="flex flex-col items-center md:flex-row [&>*]:px-4 [&>*]:py-1 text-[14px] flex-1">
+              <div className="flex flex-col md:flex-row [&>*]:px-4 [&>*]:py-1 text-[14px] flex-1">
                 {page > 1 && (
                   <Link
                     onClick={(e) => {
@@ -777,10 +778,9 @@ export default function DataTable() {
                     to={"?page=" + (page - 1)}
                     className="text-blue-500 h-fit"
                   >
-                    {"<<"} Précédent
+                    {"<<"} Prev
                   </Link>
                 )}
-
                 <div className="grid grid-cols-5 gap-3 md:grid-cols-10 md:max-w-[600px]">
                   {new Array(pageCount).fill(1).map((e, index) => {
                     return (
@@ -790,7 +790,7 @@ export default function DataTable() {
                           className={`${
                             page === index + 1 &&
                             "bg-blue-500 text-gray-50 px-3 h-fit w-fit rounded-md hover:shadow-lg hover:shadow-blue-400"
-                          } underline` }
+                          } underline`}
                           onClick={(e) => {
                             e.preventDefault();
                             setPage(index + 1);
@@ -812,7 +812,7 @@ export default function DataTable() {
                     to={"?page=" + (page + 1)}
                     className="text-blue-500 h-fit"
                   >
-                    Suivant {">>"}
+                    Next {">>"}
                   </Link>
                 )}
               </div>
@@ -825,7 +825,7 @@ export default function DataTable() {
 
       {/* //Formulaire d'ajout de produits */}
       {openAddForm && (
-        <div className="fixed -top-4 left-0 z-20 flex items-center justify-center w-full  h-screen overflow-auto bg-black/70">
+        <div className="fixed left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto -top-4 bg-black/70">
           <div className="bg-white rounded-md w-full md:w-[60%] lg:w-[40%] mx-2 flex flex-col items-center space-y-4 p-4">
             <p>Add a new product</p>
             <form
@@ -938,7 +938,7 @@ export default function DataTable() {
 
       {/* //Formulaire de modification de produits */}
       {openEditForm && (
-        <div className="fixed -top-4 left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto bg-black/70">
+        <div className="fixed left-0 z-20 flex items-center justify-center w-full h-screen overflow-auto -top-4 bg-black/70">
           <div className="bg-white mx-2 rounded-md w-full md:w-[60%] lg:w-[40%] flex flex-col items-center space-y-4 p-4">
             <p>Update product {idUpdate} </p>
             <form
